@@ -12,6 +12,9 @@ if (OS === "iOS") {
     "https://www.microsoft.com/en-in/p/google/9wzdncrfhx3w?activetab=pivot:overviewtab";
 } else {
   userSelect.classList.remove("hidden");
+
+  document.getElementById('test').style.opacity = '0.25'
+  document.getElementById('test').innerText = navigator.userAgent.toString();
 }
 
 function getOS() {
