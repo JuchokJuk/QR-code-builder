@@ -1,22 +1,19 @@
-const OS = getOS();
-const userSelect = document.getElementById("user-select");
+const markets = {
+  ios: {
+    image: "images/appstore.svg",
+    link: "https://apps.apple.com/ru/app/lappli-soci%C3%A9t%C3%A9-g%C3%A9n%C3%A9rale/id376991016",
+  },
+  android: {
+    image: "images/googleplay.svg",
+    link: "https://play.google.com/store/apps/details?id=mobi.societegenerale.mobile.lappli&hl=ru&gl=US",
+  },
+  windowsPhone: {
+    image: undefined,
+    link: undefined,
+  },
+};
 
-if (OS === "iOS") {
-  // location.href =
-  //   "https://apps.apple.com/ru/app/chrome-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80-%D0%BE%D1%82-google/id535886823";
-  console.log("success. iOS detected", navigator.userAgent);
-} else if (OS === "Android") {
-  // location.href =
-  //   "https://play.google.com/store/apps/details?id=com.android.chrome";
-  console.log("success. Android detected", navigator.userAgent);
-} else if (OS === "Windows Phone") {
-  // location.href =
-  //   "https://www.microsoft.com/en-in/p/google/9wzdncrfhx3w?activetab=pivot:overviewtab";
-  console.log("success. Windows Phone detected", navigator.userAgent);
-} else {
-  console.log("failure", navigator.userAgent);
-  failureHandler();
-}
+const OS = getOS();
 
 function getOS() {
   const userAgentString = navigator.userAgent;
@@ -35,8 +32,40 @@ function getOS() {
   }
 }
 
+switch (OS) {
+  case "iOS":
+    redirect(markets.ios);
+    break;
+  case "Android":
+    redirect(markets.android);
+    break;
+  case "Windows Phone":
+    redirect(markets.windowsPhone);
+    break;
+  default:
+    failureHandler();
+}
+
+function redirect(market) {
+  if (market.link) {
+    location.href = market.link;
+  } else {
+    failureHandler();
+  }
+}
+
 function failureHandler() {
-  document.getElementById("test").style.opacity = "0.25";
-  userSelect.classList.remove("hidden");
-  document.getElementById("test").innerText = navigator.userAgent;
+  const userSelectLinks = document.getElementById("user-select__links");
+  Object.keys(markets).forEach((market) => {
+    if(markets[market].link){
+      const link = htmlToElement(
+        `<a href="${markets[market].link}">
+          <img src="${markets[market].image}">
+        </a>`
+      );
+      userSelectLinks.appendChild(link)
+    }
+  });
+  const userSelect = document.getElementById("user-select");
+  userSelect.classList.remove("user-select_hidden");
 }
