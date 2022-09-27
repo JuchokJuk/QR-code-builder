@@ -1,0 +1,10 @@
+.width-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-control {
+  width: 100%;
+  max-width: 800px;
+}

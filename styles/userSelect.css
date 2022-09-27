@@ -1,0 +1,17 @@
+.user-select{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 32px;
+}
+.user-select h1{
+    font-size: 32px;
+    line-height: 36px;
+}
+.user-select__links{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 16px;
+}
+.user-select a{
+    color: var(--line-1);
+}
