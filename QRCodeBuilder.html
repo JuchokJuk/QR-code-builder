@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR code builder</title>
+
+    <link href="styles/caption.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/page.css" rel="stylesheet">
+    <link href="styles/reset.css" rel="stylesheet">
+    <link href="styles/scroll.css" rel="stylesheet">
+    <link href="styles/QRCodeBuilder.css" rel="stylesheet">
+    <link href="styles/widthControl.css" rel="stylesheet">
+    <link href="styles/input.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="width-control-container">
+        <div class="width-control">
+            <div class="page-container">
+
+                <div class="QR-code-builder">
+                    <h1>Вставте ссылки на магазины приложений чтоб получить универсальный QR-код</h1>
+
+                    <div class="QR-code-builder__inputs">
+                        <div class="QR-code-builder__inputs__input">
+                            <span class="caption QR-code-builder__inputs__input__name">App Store</span>
+                            <input type="text" id="URL-input-iOS">
+                        </div>
+
+                        <div class="QR-code-builder__inputs__input">
+                            <span class="caption caption QR-code-builder__inputs__input__name">Google Play</span>
+                            <input type="text" id="URL-input-android">
+                        </div>
+                    </div>
+
+                    <div class="QR-code-builder__result QR-code-builder__result_hidden" id="QR-code-builder__result">
+                        <canvas id="canvas" width="0" height="0"></canvas>
+                        <a class="QR-code-builder__URL" id="QR-code-builder__URL"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/htmlToElement.js"></script>
+    <script src="scripts/colorScheme.js"></script>
+    <script src="node_modules/qrcode/build/qrcode.js"></script>
+    <script src="scripts/QRCodeBuilder.js"></script>
+</body>
+
+</html>

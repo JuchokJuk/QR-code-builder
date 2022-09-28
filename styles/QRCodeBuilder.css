@@ -1,0 +1,49 @@
+.QR-code-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.QR-code-builder h1 {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.QR-code-builder__URL {
+  word-break: break-all;
+}
+
+.QR-code-builder__inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .QR-code-builder__inputs {
+    flex-direction: column;
+  }
+}
+
+.QR-code-builder__inputs__input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.QR-code-builder__inputs__input__name {
+  margin-left: 4px;
+}
+
+.QR-code-builder__result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.QR-code-builder__result_hidden {
+  opacity: 0;
+  transform: translateY(16px);
+}

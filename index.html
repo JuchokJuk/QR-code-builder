@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>os identifier</title>
+    <title>OS identifier</title>
 
     <link href="styles/caption.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
@@ -14,6 +14,7 @@
     <link href="styles/scroll.css" rel="stylesheet">
     <link href="styles/userSelect.css" rel="stylesheet">
     <link href="styles/widthControl.css" rel="stylesheet">
+    <link href="styles/errorMessage.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,9 +27,17 @@
                     <h1>Не удалось выбрать <br />
                         подходящий магазин приложений</h1>
                     <span class="caption">Приложение доступно в:</span>
-                    <div class="user-select__links" id="user-select__links">
+                    <div class="user-select__links">
+                        <a id="App-Store-button">
+                            <img src="images/appstore.svg">
+                        </a>
+                        <a id="Google-Play-button">
+                            <img src="images/googleplay.svg">
+                        </a>
                     </div>
                 </div>
+
+                <h1 class="error-message error-message_hidden" id="error-message">Неправильная ссылка</h1>
 
             </div>
         </div>

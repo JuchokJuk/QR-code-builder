@@ -2,21 +2,23 @@ function setColorScheme(scheme) {
   let root = document.documentElement;
   switch (scheme) {
     case "dark":
-      root.style.setProperty("--surface-1", "hsl(100, 5%, 9%)");
-      root.style.setProperty("--surface-2", "hsl(100, 5%, 14%)");
-      root.style.setProperty("--surface-3", "hsl(100, 3%, 19%)");
-      root.style.setProperty("--line-1", "hsl(100, 12%, 83%)");
-      root.style.setProperty("--line-2", "hsl(100, 11%, 67%)");
+      root.style.setProperty("--surface-1", "hsl(185, 5%, 9%)");
+      root.style.setProperty("--surface-2", "hsl(185, 5%, 14%)");
+      root.style.setProperty("--surface-3", "hsl(185, 3%, 19%)");
+      root.style.setProperty("--line-1", "hsl(185, 12%, 83%)");
+      root.style.setProperty("--line-2", "hsl(185, 11%, 67%)");
+      root.style.setProperty("--line-3", "hsl(185, 5%, 35%)");
 
       changeFavicon("images/favicon-light.svg");
       break;
 
     case "light":
-      root.style.setProperty("--surface-1", "hsl(100, 25%, 98%)");
-      root.style.setProperty("--surface-2", "hsl(100, 17%, 94%)");
-      root.style.setProperty("--surface-3", "hsl(100, 12%, 90%)");
-      root.style.setProperty("--line-1", "hsl(100, 3%, 30%)");
-      root.style.setProperty("--line-2", "hsl(100, 5%, 35%)");
+      root.style.setProperty("--surface-1", "hsl(185, 25%, 98%)");
+      root.style.setProperty("--surface-2", "hsl(185, 17%, 94%)");
+      root.style.setProperty("--surface-3", "hsl(185, 12%, 90%)");
+      root.style.setProperty("--line-1", "hsl(185, 3%, 30%)");
+      root.style.setProperty("--line-2", "hsl(185, 5%, 35%)");
+      root.style.setProperty("--line-3", "hsl(185, 5%, 75%)");
 
       changeFavicon("images/favicon-dark.svg");
       break;

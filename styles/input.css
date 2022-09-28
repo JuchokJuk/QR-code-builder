@@ -1,0 +1,16 @@
+input {
+  all: unset;
+  background: var(--surface-2);
+  color: var(--line-2);
+  border-radius: 8px;
+  padding: 16px 24px;
+
+  transition: 0.4s box-shadow ease, 0.4s background-color ease;
+}
+input:hover {
+  background: var(--surface-3);
+}
+input:focus {
+  background: var(--surface-3);
+  box-shadow: inset 0 0 0 2px var(--line-3);
+}

@@ -1,0 +1,8 @@
+node_modules/*
+!node_modules/qrcode
+node_modules/qrcode/*
+!node_modules/qrcode/build/
+node_modules/qrcode/build/*
+!node_modules/qrcode/build/qrcode.js
+
+package-lock.json

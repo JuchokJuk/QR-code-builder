@@ -1,17 +1,18 @@
 const markets = {
   ios: {
     image: "images/appstore.svg",
-    link: "https://apps.apple.com/ru/app/lappli-soci%C3%A9t%C3%A9-g%C3%A9n%C3%A9rale/id376991016",
+    link: undefined,
   },
   android: {
     image: "images/googleplay.svg",
-    link: "https://play.google.com/store/apps/details?id=mobi.societegenerale.mobile.lappli&hl=ru&gl=US",
-  },
-  windowsPhone: {
-    image: undefined,
     link: undefined,
   },
 };
+
+const urlParams = new URLSearchParams(window.location.search);
+
+markets.ios.link = urlParams.get("ios");
+markets.android.link = urlParams.get("android");
 
 const OS = getOS();
 
@@ -25,8 +26,6 @@ function getOS() {
     return "iOS";
   } else if (/Android/.test(userAgentString)) {
     return "Android";
-  } else if (/Windows Phone/.test(userAgentString)) {
-    return "Windows Phone";
   } else {
     return undefined;
   }
@@ -38,9 +37,6 @@ switch (OS) {
     break;
   case "Android":
     redirect(markets.android);
-    break;
-  case "Windows Phone":
-    redirect(markets.windowsPhone);
     break;
   default:
     failureHandler();
@@ -55,17 +51,17 @@ function redirect(market) {
 }
 
 function failureHandler() {
-  const userSelectLinks = document.getElementById("user-select__links");
-  Object.keys(markets).forEach((market) => {
-    if(markets[market].link){
-      const link = htmlToElement(
-        `<a href="${markets[market].link}">
-          <img src="${markets[market].image}">
-        </a>`
-      );
-      userSelectLinks.appendChild(link)
-    }
-  });
-  const userSelect = document.getElementById("user-select");
-  userSelect.classList.remove("user-select_hidden");
+  if (markets.ios.link && markets.android.link) {
+    const AppStoreButton = document.getElementById("App-Store-button");
+    const GooglePlayButton = document.getElementById("Google-Play-button");
+    const userSelect = document.getElementById("user-select");
+
+    AppStoreButton.href = markets.ios.link;
+    GooglePlayButton.href = markets.android.link;
+
+    userSelect.classList.remove("user-select_hidden");
+  } else {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.classList.remove("error-message_hidden");
+  }
 }

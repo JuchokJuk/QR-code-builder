@@ -4,8 +4,8 @@
   margin-left: 16px;
   margin-right: 16px;
 
-  display: grid;
-  grid-template-columns: auto;
+  display: flex;
+  flex-direction: column;
   gap: 48px;
 
   animation: fade-in 0.4s ease;
