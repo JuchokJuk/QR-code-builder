@@ -1,0 +1,1 @@
+const siteRoot = "https://juchokjuk.github.io/QR-code-builder/";

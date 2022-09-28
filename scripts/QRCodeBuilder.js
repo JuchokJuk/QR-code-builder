@@ -30,7 +30,7 @@ function inputHandler() {
 }
 
 function getUrl() {
-  return `${window.location.origin}${window.location.pathname}/?${queryString}`;
+  return `${siteRoot}/?${queryString}`;
 }
 
 function getQueryString() {
