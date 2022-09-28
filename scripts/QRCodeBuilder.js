@@ -9,7 +9,7 @@ let queryString = createQueryString({
   android: URLInputAndroid.value,
 });
 
-let url = `${window.location.origin}/?${queryString}`;
+let url = `${window.location.origin}${window.location.pathname}/?${queryString}`;
 
 render();
 
